@@ -11,3 +11,40 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin:5px;
+}
+
+.list {
+  list-style: none;
+}
+
+.done {
+  text-decoration: line-through;
+}
+
+.add-task_input {
+  margin: 10px;
+  height: 30px;
+}
+
+.todo-item_li {
+  display: flex;
+  justify-content: space-between;
+  margin:5px;
+  padding: 5px;
+}
+
+.add-task_date {
+  margin:10px;
+  height: 30px;
+}
+
+.container_add-task {
+  display: flex;
+  align-items: center;
+}
