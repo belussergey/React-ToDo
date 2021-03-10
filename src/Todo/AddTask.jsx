@@ -7,18 +7,20 @@ const AddTask = ({onCreate}) => {
 
     const submitHandle = useCallback(() => {
         if (value.trim()) {
-            onCreate(value, startDate)
-            setValue('')
-        } else {alert('Введите название задачи!')}
+            onCreate(value, startDate);
+            setValue('');
+        } else {
+            alert('Введите название задачи!');
+        }
     }, [onCreate, startDate, value]);
 
     const handleDateChange = useCallback((date) => {
-        setStartDate(date)
+        setStartDate(date);
     }, []);
 
     const handleNameChange = useCallback((event) => {
-        setValue(event.target.value)
-    }, [])
+        setValue(event.target.value);
+    }, []);
 
     return (
         <div className="container_add-task">

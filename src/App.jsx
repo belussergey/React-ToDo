@@ -1,7 +1,7 @@
-import React, {useState, useEffect, useCallback} from 'react'
-import TasksList from './Todo/TasksList'
-import Context from "./context";
-import AddTask from "./Todo/AddTask";
+import React, {useState, useEffect, useCallback} from 'react';
+import TasksList from './Todo/TasksList';
+import Context from './context';
+import AddTask from './Todo/AddTask';
 import {v4 as uuidv4} from 'uuid';
 
 const App = () => {
@@ -23,14 +23,6 @@ const App = () => {
     }, [tasks]);
 
     const addTask = useCallback((title,value) => {
-        // setTasks(tasks.concat([
-        //     {
-        //         title,
-        //         id: uuidv4(),
-        //         checked: false,
-        //         date: new Date().toLocaleDateString()
-        //     }
-        // ]));
         setTasks([...tasks, {
             title,
             id: uuidv4(),

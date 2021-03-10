@@ -1,22 +1,28 @@
-import React, {useContext} from 'react';
+import React, {useContext, useCallback} from 'react';
 import PropTypes from 'prop-types';
-import Context from "../context";
-import App from "../App";
+import Context from '../context';
 
 const TodoItem = ({task, position, onChange}) => {
     const {removeTodo} = useContext(Context);
     const {completedTask} = useContext(Context);
-    const classes = [];
 
-    if (task.checked) {
-        classes.push('done')
-    }
+    const handleNameChange = useCallback(() => {
+        onChange(task.id);
+    }, [onChange, task.id]);
+
+    const handleCompletedBtn = useCallback(() => {
+        completedTask(task.id);
+    }, []);
+
+    const handleRemoveBtn = useCallback(() => {
+        removeTodo(task.id);
+    });
 
     return (
         <div>
             <hr/>
             <div className='todo-item_li'>
-            <span className={classes.join(' ')}>
+            <span className={task.checked ? 'done' : ''}>
                 <div>Название задачи:</div>
                 <strong>{position} </strong>
                 {task.title}
@@ -25,14 +31,14 @@ const TodoItem = ({task, position, onChange}) => {
                 <div>
                     <input
                         type='checkbox'
-                        onChange={() => onChange(task.id)}
+                        onChange={handleNameChange}
                         checked={task.checked}
                     />
-                    {!task.checked && <button onClick={completedTask.bind(App, task.id)}>Выполнить</button>}
+                    {!task.checked && <button onClick={handleCompletedBtn}>Выполнить</button>}
                 </div>
             </span>
                 <div>
-                    <button onClick={removeTodo.bind(App, task.id)}>Удалить</button>
+                    <button onClick={handleRemoveBtn}>Удалить</button>
                 </div>
             </div>
         </div>

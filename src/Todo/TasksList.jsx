@@ -1,5 +1,5 @@
 import React from 'react';
-import TodoItem from "./TodoItem";
+import TodoItem from './TodoItem';
 import PropTypes from 'prop-types';
 
 const TasksList = ({tasks, onToggle}) => {
@@ -15,7 +15,7 @@ const TasksList = ({tasks, onToggle}) => {
             ))}
         </div>
     );
-}
+};
 
 TasksList.propTypes = {
     tasks: PropTypes.arrayOf(PropTypes.object).isRequired,
