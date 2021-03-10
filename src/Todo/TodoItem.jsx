@@ -12,11 +12,11 @@ const TodoItem = ({task, position, onChange}) => {
 
     const handleCompletedBtn = useCallback(() => {
         completedTask(task.id);
-    }, []);
+    }, [completedTask, task.id]);
 
     const handleRemoveBtn = useCallback(() => {
         removeTodo(task.id);
-    });
+    }, [removeTodo, task.id]);
 
     return (
         <div>
